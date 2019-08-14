@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Restaurants</h1>
+
+
+  <button type="button" class="btn btn-outline-info"><%= link_to 'Add a new restaurant', new_restaurant_path %></button>
+<hr>
+  <div class="new_class d-flex flex-wrap">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h4 class="card-title"><%= restaurant.name %> - <%= restaurant.category %></h4>
+          <h5 class="card-subtitle mb-2 text-muted"><%= restaurant.address %></h5>
+          <p class="card-text"><%= restaurant.phone_number %></p>
+          <button type="button" class="btn btn-info"><%= link_to 'About', restaurant_path(restaurant) %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

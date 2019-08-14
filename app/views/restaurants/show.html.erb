@@ -1,0 +1,23 @@
+<h1><%= @restaurant.name %></h1>
+
+<div class="d-flex justify-content-between">
+  <p class="category"><%= @restaurant.category %> food</p>
+  <%= link_to restaurants_path do %>
+    <i class="fa fa-history"></i> Back to restaurants
+  <% end %>
+</div>
+
+<br>
+<h2><%= @restaurant.address %></h2>
+<h3><%= @restaurant.phone_number %></h3>
+<button type="button" class="btn btn-info"><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %></button>
+<br>
+<img src="https://source.unsplash.com/random" alt="random_restau">
+
+<div class="review">
+  <h2>Reviews:</h2>
+  <ul><% @restaurant.reviews.each do |review| %>
+    <li><%= "#{review.content} - #{review.rating}" %>/5</li>
+  <% end %>
+  </ul>
+</div>
